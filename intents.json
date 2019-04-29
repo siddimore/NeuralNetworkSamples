@@ -1,0 +1,83 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "nextactions": [],
+         "context_set": ""
+        },
+        {"tag": "unknown",
+          "patterns": ["what about", "how about", "any problems", "help me get"],
+          "responses": ["Did you mean to look up issues in Azure or depedencies"],
+          "nextactions": ["I am looking up the past intents matching this action"]
+        },
+        {"tag": "incident",
+          "patterns": ["look up oncall DRI for my services", "who is on call for", "oncall DRI"],
+          "responses": ["XYZ@microsoft.com is the Oncall DRI"],
+          "nextactions": ["I noticed an upcoming issue do you want me to engage OnCall DRI"]
+        },
+        {"tag": "outages",
+          "patterns": ["any outages", "show me my outages", "any outages in my service", "any upcoming outages that may impact me"],
+          "responses": ["I noticed outage in your service"],
+          "nextactions": ["updates related to my outage", "what about other services?", "what about my depdencies?"]
+        },
+        {"tag": "impacttracker",
+          "patterns": ["outage impact tracker for?", "do you support adding an impact for outage?", "how do i report outage impact tracker?", "can i report an outage impact?", "i would like to update an outage", "help me report an impact for this", "what is the command for outage update?", "what is the command to update an outage?", "add an impact for an outage"],
+          "responses": ["create an outage impact tracker for incident id", "update outage impact tracker for incidentid"],
+          "nextactions": []
+         },
+         {"tag": "region",
+          "patterns": ["regional outage?", "help me get all regional outages?", "help needed to find outages by region?", "Obi how do i get regional outages?"],
+          "nextactions": [],
+          "responses": ["get outages in regionName region", "outages by region"]
+         },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "nextactions": [],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "hours",
+         "patterns": ["What hours are you open?", "What are your hours?", "When are you open?" ],
+         "nextactions": [],
+         "responses": ["We're open every day 9am-9pm", "Our hours are 9am-9pm every day"]
+        },
+        {"tag": "mopeds",
+         "patterns": ["Which mopeds do you have?", "What kinds of mopeds are there?", "What do you rent?" ],
+         "nextactions": [],
+         "responses": ["We rent Yamaha, Piaggio and Vespa mopeds", "We have Piaggio, Vespa and Yamaha mopeds"]
+        },
+        {"tag": "payments",
+         "patterns": ["Do you take credit cards?", "Do you accept Mastercard?", "Are you cash only?" ],
+         "nextactions": [],
+         "responses": ["We accept VISA, Mastercard and AMEX", "We accept most major credit cards"]
+        },
+        {"tag": "opentoday",
+         "patterns": ["Are you open today?", "When do you open today?", "What are your hours today?"],
+         "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"],
+         "nextactions": []
+        },
+        {"tag": "rental",
+         "patterns": ["Can we rent a moped?", "I'd like to rent a moped", "How does this work?" ],
+         "responses": ["Are you looking to rent today or later this week?"],
+         "nextactions": [],
+         "context_set": "rentalday"
+        },
+        {"tag": "today",
+         "patterns": ["today"],
+         "responses": ["For rentals today please call 1-800-MYMOPED", "Same-day rentals please call 1-800-MYMOPED"],
+         "nextactions": [],
+         "context_filter": "rentalday"
+       },
+        {"tag": "fun",
+         "patterns": ["fun"],
+         "responses": ["Bowling was a lot of fun", "SNAP team enjoyed Bowling"],
+         "nextactions": [],
+         "context_filter": "rentalday"
+       },
+        {"tag": "rick",
+         "patterns": ["rick"],
+         "responses": ["Rick is my bosses boss", "Rick is a great guy"],
+         "nextactions": [],
+         "context_filter": "rentalday"
+        }
+   ]
+}
